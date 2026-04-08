@@ -628,6 +628,56 @@
         margin-bottom: 1.2rem;
       }
 
+      /* HOBBIES */
+      #hobbies {
+        background: var(--bg);
+      }
+
+      .hobbies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .hobby-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        padding: 2rem 1.75rem;
+        text-align: center;
+        transition: border-color 0.3s, transform 0.3s;
+      }
+
+      .hobby-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .hobby-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .hobby-name {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--text-bright);
+        margin-bottom: 0.6rem;
+        letter-spacing: -0.01em;
+      }
+
+      .hobby-desc {
+        font-size: 0.82rem;
+        color: var(--text-dim);
+        line-height: 1.7;
+      }
+
+      @media (max-width: 768px) {
+        .hobbies-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* CONTACT */
       #contact {
         background: var(--bg2);
@@ -858,6 +908,7 @@
         <li><a href="#experience" data-i18n="nav.exp">Experiencia</a></li>
         <li><a href="#skills" data-i18n="nav.skills">Stack</a></li>
         <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
         <li><button class="lang-toggle" id="langBtn">EN</button></li>
       </ul>
@@ -1168,6 +1219,44 @@
     </section>
 
     <!-- CONTACT -->
+    <!-- HOBBIES -->
+    <section id="hobbies">
+      <div class="container">
+        <div class="section-header fade-in">
+          <p class="section-tag" data-i18n="hobbies.tag">Más allá del trabajo</p>
+          <h2 class="section-title" data-i18n="hobbies.title">
+            Fuera del trabajo,<br />también me gusta.
+          </h2>
+        </div>
+        <div class="hobbies-grid">
+          <div class="hobby-card fade-in">
+            <div class="hobby-icon">🎾</div>
+            <p class="hobby-name" data-i18n="hobby1.name">Pádel</p>
+            <p class="hobby-desc" data-i18n="hobby1.desc">
+              El pádel se ha convertido en mi deporte principal, compitiendo en
+              torneos amateur y jugando con amigos.
+            </p>
+          </div>
+          <div class="hobby-card fade-in">
+            <div class="hobby-icon">🎸</div>
+            <p class="hobby-name" data-i18n="hobby2.name">Bajo eléctrico</p>
+            <p class="hobby-desc" data-i18n="hobby2.desc">
+              Toco el bajo con influencias del rock. Me gusta tocar en vivo
+              cuando tengo la ocasión.
+            </p>
+          </div>
+          <div class="hobby-card fade-in">
+            <div class="hobby-icon">♟️</div>
+            <p class="hobby-name" data-i18n="hobby3.name">Ajedrez</p>
+            <p class="hobby-desc" data-i18n="hobby3.desc">
+              Mi modalidad favorita en Chess.com es Bala a 1 minuto, con un ELO
+              máximo de 1756.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="container">
         <div class="section-header fade-in">
@@ -1219,6 +1308,7 @@
             <div class="form-field">
               <label data-i18n="form.name">Nombre</label>
               <input
+                id="form-name"
                 type="text"
                 placeholder="Tu nombre"
                 data-i18n-placeholder="form.name.ph"
@@ -1226,11 +1316,12 @@
             </div>
             <div class="form-field">
               <label>Email</label>
-              <input type="email" placeholder="tu@email.com" />
+              <input id="form-email" type="email" placeholder="tu@email.com" />
             </div>
             <div class="form-field">
               <label data-i18n="form.msg">Mensaje</label>
               <textarea
+                id="form-msg"
                 placeholder="¿En qué te puedo ayudar?"
                 data-i18n-placeholder="form.msg.ph"
               ></textarea>
@@ -1269,6 +1360,7 @@
           "nav.exp": "Experiencia",
           "nav.skills": "Stack",
           "nav.projects": "Proyectos",
+          "nav.hobbies": "Hobbies",
           "nav.contact": "Contacto",
           "hero.tag": "Principal Data Analyst · Montevideo, UY",
           "hero.title": "Turning data into decisions since 2010",
@@ -1314,6 +1406,17 @@
             "Agente de lenguaje natural para consultar BigQuery via Streamlit. Permite a usuarios no técnicos hacer preguntas en lenguaje natural y obtener visualizaciones automáticas desde el data warehouse.",
           "tag.marketing": "Marketing",
           "tag.ops": "Operaciones",
+          "hobbies.tag": "Más allá del trabajo",
+          "hobbies.title": "Fuera del trabajo,\ntambién me gusta.",
+          "hobby1.name": "Pádel",
+          "hobby1.desc":
+            "El pádel se ha convertido en mi deporte principal, compitiendo en torneos amateur y jugando con amigos.",
+          "hobby2.name": "Bajo eléctrico",
+          "hobby2.desc":
+            "Toco el bajo con influencias del rock. Me gusta tocar en vivo cuando tengo la ocasión.",
+          "hobby3.name": "Ajedrez",
+          "hobby3.desc":
+            "Mi modalidad favorita en Chess.com es Bala a 1 minuto, con un ELO máximo de 1756.",
           "contact.tag": "Contacto",
           "contact.title": "Hablemos\nde datos.",
           "contact.intro":
@@ -1329,6 +1432,7 @@
           "nav.exp": "Experience",
           "nav.skills": "Stack",
           "nav.projects": "Projects",
+          "nav.hobbies": "Hobbies",
           "nav.contact": "Contact",
           "hero.tag": "Principal Data Analyst · Montevideo, UY",
           "hero.title": "Turning data into decisions since 2010",
@@ -1374,6 +1478,17 @@
             "Natural language agent to query BigQuery via Streamlit. Allows non-technical users to ask questions in natural language and get automatic visualizations from the data warehouse.",
           "tag.marketing": "Marketing",
           "tag.ops": "Operations",
+          "hobbies.tag": "Beyond work",
+          "hobbies.title": "Outside work,\nI also enjoy.",
+          "hobby1.name": "Padel",
+          "hobby1.desc":
+            "Padel has become my main sport — competing in amateur tournaments and playing with friends.",
+          "hobby2.name": "Bass guitar",
+          "hobby2.desc":
+            "I play bass with rock influences. I love playing live whenever I get the chance.",
+          "hobby3.name": "Chess",
+          "hobby3.desc":
+            "My favorite mode on Chess.com is 1-minute Bullet, with a peak ELO of 1756.",
           "contact.tag": "Contact",
           "contact.title": "Let's talk\ndata.",
           "contact.intro":
@@ -1449,11 +1564,29 @@
 
       // FORM HANDLER
       function handleFormSubmit() {
-        alert(
+        const name = document.getElementById("form-name").value.trim();
+        const email = document.getElementById("form-email").value.trim();
+        const msg = document.getElementById("form-msg").value.trim();
+
+        if (!name || !email || !msg) {
+          alert(
+            currentLang === "es"
+              ? "Por favor completá todos los campos."
+              : "Please fill in all fields.",
+          );
+          return;
+        }
+
+        const subject = encodeURIComponent(
           currentLang === "es"
-            ? "¡Mensaje enviado! Te respondo pronto."
-            : "Message sent! I'll get back to you soon.",
+            ? `Contacto desde portfolio — ${name}`
+            : `Portfolio contact — ${name}`,
         );
+        const body = encodeURIComponent(
+          `Nombre: ${name}\nEmail: ${email}\n\n${msg}`,
+        );
+
+        window.location.href = `mailto:chema.tosm@gmail.com?subject=${subject}&body=${body}`;
       }
     </script>
   </body>
